@@ -16,9 +16,9 @@ export const action = async ({ request }) => {
   return redirect('/news');
 } 
 
-export default function News() {
+function News() {
   const actionData = useActionData();
-  console.log(actionData, 'actionData');
+  // console.log(actionData, 'actionData');
   
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
@@ -78,3 +78,15 @@ export default function News() {
     </div>
   );
 }
+
+export function ErrorBoundary({ error }) {
+  console.log(error, 'error');
+  return (
+    <div>
+      <h1>Error</h1>
+      <p>{error.message}</p> 
+    </div>
+  )
+}
+
+export default News;
