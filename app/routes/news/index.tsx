@@ -21,7 +21,7 @@ export const meta: V2_MetaFunction = () => {
 export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>This is News Route Inside Folder. (With Folder Routing) con</h1>
+      <h1>This is News Route Inside Folder. (With Folder Routing)</h1>
     </div>
   );
 }
