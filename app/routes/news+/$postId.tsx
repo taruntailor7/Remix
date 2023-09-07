@@ -2,7 +2,6 @@ import { useParams } from '@remix-run/react';
 
 export default function News() {
   const params = useParams()
-  console.log(params, 'params log');
 
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
