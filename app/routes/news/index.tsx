@@ -13,7 +13,7 @@ import type { V2_MetaFunction } from "@remix-run/node";
 
 export const meta: V2_MetaFunction = () => {
   return [
-    { title: "Remix Routes Example" },
+    { title: "" },
     { name: "description", content: "Concerts" },
   ];
 };
