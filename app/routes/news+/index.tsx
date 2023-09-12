@@ -1,15 +1,16 @@
 import { useLoaderData, Link } from "@remix-run/react";
 import type { V2_MetaFunction } from "@remix-run/node";
+import {db} from '~/utils/db.server';
 
-export const loader = () => {
+export const loader = async () => {
   // For Server-Side stuff API Call and all other  
   //  console.log("inside loader");
   const data = {
-    news: [
-      {id: 1,  title: 'news 1', body: 'This is a test news 1'},
-      {id: 2,  title: 'news 2', body: 'This is a test news 2'},
-      {id: 3,  title: 'news 3', body: 'This is a test news 3'}
-    ]
+    news: await db.post.findMany({
+      take: 20,
+      select: { id: true, title: true, createdAt: true},
+      orderBy: {createdAt: 'desc'},
+    }),
   } 
   return data;
 }
@@ -36,11 +37,11 @@ export default function Index() {
           <li key={news.id}>
             <Link to={`/news/${news.id}`}>
               <h3>{news.title}</h3>
-              {/* {new Date(news.createdAt).toLocaleString()} */}
+              {new Date(news.createdAt).toLocaleString()}
             </Link>
           </li>
         ))}
       </ul>
     </>
   );
-}
+} 
